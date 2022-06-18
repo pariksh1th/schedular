@@ -1,5 +1,5 @@
-import BottomBar from "../Components/BottomBar";
-import Canvas from "../Components/Canvas";
+import BottomBar from "../components/BottomBar";
+import Canvas from "../components/Canvas";
 import { useAuth } from "../lib/context";
 
 export default function Subject() {

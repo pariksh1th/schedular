@@ -1,5 +1,5 @@
-import BottomBar from "../Components/BottomBar";
-import TableCanvas from "../Components/TableCanvas";
+import BottomBar from "../components/BottomBar";
+import TableCanvas from "../components/TableCanvas";
 import { useAuth } from "../lib/context";
 
 export default function Timetable() {
