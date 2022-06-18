@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useAuth } from "../lib/context";
+import { FcGoogle } from "react-icons/fc";
 
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
@@ -9,7 +10,7 @@ export default function Home() {
   const emailRef = useRef();
   const router = useRouter();
   const passwordRef = useRef();
-  const { currentUser, login } = useAuth();
+  const { currentUser, login, googleLogin } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
   const notify = () => toast.error(error);
@@ -79,12 +80,21 @@ export default function Home() {
               <button
                 disabled={loading}
                 type="submit"
-                className="btn btn-primary"
+                className="btn btn-primary  mb-0 mt-0"
               >
                 Login
               </button>
             </div>
           </form>
+          <div className="divider mt-0">OR</div>
+          <button
+            disabled={loading}
+            onClick={() => googleLogin()}
+            className="btn btn-primary mb-4 mx-8"
+          >
+            <FcGoogle size="28" />
+            <span className="px-2">Login with google</span>
+          </button>
         </div>
       </div>
     </div>

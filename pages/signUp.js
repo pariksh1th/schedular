@@ -3,12 +3,13 @@ import { useRef, useState } from "react";
 import { useAuth } from "../lib/context";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
+import { FcGoogle } from "react-icons/fc";
 
 export default function SignUP() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, signUp } = useAuth();
+  const { currentUser, signUp, googleLogin } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -94,6 +95,14 @@ export default function SignUP() {
               </button>
             </div>
           </form>
+          <button
+            disabled={loading}
+            onClick={() => googleLogin()}
+            className="btn btn-primary mb-4 mx-8"
+          >
+            <FcGoogle size="28" />
+            <span className="px-2">Sign up with google</span>
+          </button>
         </div>
       </div>
     </div>
