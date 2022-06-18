@@ -8,11 +8,11 @@ export default function SignUP() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { signUp } = useAuth();
+  const { currentUser, signUp } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
-  const notify = () => toast.error(error);
   const router = useRouter();
+  const notify = () => toast.error(error);
 
   async function handleSubmit(e) {
     e.preventDefault();

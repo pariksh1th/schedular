@@ -1,17 +1,18 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useAuth } from "../lib/context";
-import { useRouter } from "next/router";
+
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const emailRef = useRef();
+  const router = useRouter();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const { currentUser, login } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
   const notify = () => toast.error(error);
-  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -19,7 +20,7 @@ export default function Home() {
       setEroor("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      router.push("/subject", undefined);
+      router.push("/subject");
     } catch {
       setEroor("Failed to login");
     }
