@@ -24,7 +24,7 @@ export default function SignUP() {
       setLoading(true);
       await signUp(emailRef.current.value, passwordRef.current.value);
       toast.success("Sign up successful🎉");
-      router.push("/subject", undefined);
+      router.push("/", undefined);
     } catch {
       setEroor("Failed to create an account");
     }
