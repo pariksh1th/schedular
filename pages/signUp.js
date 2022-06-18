@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useAuth } from "../lib/context";
-import { useRouter } from "next/router";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
-export default function Home() {
+export default function SignUP() {
   const emailRef = useRef();
   const passwordRef = useRef();
-  const { login } = useAuth();
+  const passwordConfirmRef = useRef();
+  const { signUp } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
   const notify = () => toast.error(error);
@@ -15,13 +16,16 @@ export default function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+      return setEroor("Passwords do not match");
+    }
     try {
       setEroor("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+      await signUp(emailRef.current.value, passwordRef.current.value);
       router.push("/subject", undefined);
     } catch {
-      setEroor("Failed to login");
+      setEroor("Failed to create an account");
     }
 
     setLoading(false);
@@ -32,7 +36,7 @@ export default function Home() {
       {error != "" && notify()}
       <div className="hero-content flex-col lg:flex-row-reverse px-24 lg:gap-[2rem]">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Login now!</h1>
+          <h1 className="text-5xl font-bold">Sign UP!</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
@@ -63,11 +67,19 @@ export default function Home() {
                 className="input input-bordered"
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-                <Link href="/signUp">
-                  <a className="label-text-alt link link-hover">SignUp</a>
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                ref={passwordConfirmRef}
+                type="password"
+                placeholder="confirm password"
+                className="input input-bordered"
+              />
+              <label className="label">
+                <Link href="/">
+                  <a className="label-text-alt link link-hover">
+                    Already have an account? Login
+                  </a>
                 </Link>
               </label>
             </div>
@@ -77,7 +89,7 @@ export default function Home() {
                 type="submit"
                 className="btn btn-primary"
               >
-                Login
+                SignUP
               </button>
             </div>
           </form>

@@ -1,8 +1,12 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
     <div className="navbar bg-base-100 text-primary drop-shadow-md">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-2xl">schedular</a>
+        <Link href="/">
+          <a className="btn btn-ghost normal-case text-2xl">schedular</a>
+        </Link>
       </div>
       <div className="flex-none">
         <button className="btn btn-square btn-ghost">

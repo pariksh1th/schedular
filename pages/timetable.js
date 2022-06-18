@@ -1,10 +1,10 @@
 import BottomBar from "../components/BottomBar";
-import Canvas from "../components/canvas";
+import TableCanvas from "../components/TableCanvas";
 
 export default function timetable() {
   return (
     <>
-      <Canvas />
+      <TableCanvas />
       <BottomBar />
     </>
   );
