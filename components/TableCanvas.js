@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export default function TableCanvas() {
   return (
     <div className="hero min-h-[80vh] bg-base-200">
@@ -5,6 +6,7 @@ export default function TableCanvas() {
         <img
           src="https://api.lorem.space/image/movie?w=260&h=400"
           className="max-w-sm rounded-lg shadow-2xl"
+          alt="img"
         />
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">No Timetable Yet!</h1>
