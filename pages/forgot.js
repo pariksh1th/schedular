@@ -1,32 +1,26 @@
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { useAuth } from "../lib/context";
-import toast from "react-hot-toast";
-import { useRouter } from "next/router";
 
-export default function SignUP() {
+import toast from "react-hot-toast";
+
+export default function Home() {
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
-  const { currentUser, signUp } = useAuth();
+
+  const { resetPassword } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
   const notify = () => toast.error(error);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setEroor("Passwords do not match");
-    }
     try {
       setEroor("");
       setLoading(true);
-      await signUp(emailRef.current.value, passwordRef.current.value);
-      toast.success("Sign up successful🎉");
-      router.push("/subject", undefined);
+      await resetPassword(emailRef.current.value);
+      toast.success("Check your inbox");
     } catch {
-      setEroor("Failed to create an account");
+      setEroor("Failed to sendß");
     }
 
     setLoading(false);
@@ -37,7 +31,7 @@ export default function SignUP() {
       {error != "" && notify()}
       <div className="hero-content flex-col lg:flex-row-reverse px-24 lg:gap-[2rem]">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Sign UP!</h1>
+          <h1 className="text-5xl font-bold">Rest Password</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
             excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
@@ -59,28 +53,8 @@ export default function SignUP() {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                ref={passwordRef}
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-              />
-              <label className="label">
-                <span className="label-text">Confirm Password</span>
-              </label>
-              <input
-                ref={passwordConfirmRef}
-                type="password"
-                placeholder="confirm password"
-                className="input input-bordered"
-              />
-              <label className="label">
                 <Link href="/">
-                  <a className="label-text-alt link link-hover">
-                    Already have an account? Login
-                  </a>
+                  <a className="label-text-alt link link-hover">Login</a>
                 </Link>
               </label>
             </div>
@@ -90,7 +64,7 @@ export default function SignUP() {
                 type="submit"
                 className="btn btn-primary"
               >
-                SignUP
+                Reset Password
               </button>
             </div>
           </form>

@@ -20,6 +20,7 @@ export default function Home() {
       setEroor("");
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
+      toast.success("Login successful🎉");
       router.push("/subject");
     } catch {
       setEroor("Failed to login");
@@ -64,9 +65,11 @@ export default function Home() {
                 className="input input-bordered"
               />
               <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
+                <Link href="forgot">
+                  <a className="label-text-alt link link-hover">
+                    Forgot password?
+                  </a>
+                </Link>
                 <Link href="/signUp">
                   <a className="label-text-alt link link-hover">SignUp</a>
                 </Link>
