@@ -4,12 +4,13 @@ import { useAuth } from "../lib/context";
 import toast from "react-hot-toast";
 import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
+import { addUser } from "../lib/addUser";
 
 export default function SignUP() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, signUp, googleLogin } = useAuth();
+  const { signUp, googleLogin } = useAuth();
   const [error, setEroor] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -24,8 +25,10 @@ export default function SignUP() {
       setEroor("");
       setLoading(true);
       await signUp(emailRef.current.value, passwordRef.current.value);
+      // adding user to db with subject and timetable set to []
+      addUser(emailRef.current.value);
       toast.success("Sign up successful🎉");
-      router.push("/", undefined);
+      router.push("/subject", undefined);
     } catch {
       setEroor("Failed to create an account");
     }
