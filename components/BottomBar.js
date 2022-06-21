@@ -5,7 +5,7 @@ import Link from "next/link";
 import InputSub from "./InputSub";
 import { useRef } from "react";
 import { useRouter } from "next/router";
-import InputTable from "./InputTable";
+import InputTable from "./InputClass";
 
 export default function BottomBar() {
   const clickRef = useRef();
@@ -31,8 +31,8 @@ export default function BottomBar() {
         >
           <BsPlusLg size="34" />
         </div>
-        <div className="tooltip" data-tip="Timetable">
-          <Link href="timetable">
+        <div className="tooltip" data-tip="Classrooms">
+          <Link href="classrooms">
             <button className="btn btn-accent  w-20 h-16 hover:rounded-2xl transition-all duration-500">
               <BiTable size="40" />
             </button>
