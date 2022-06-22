@@ -39,9 +39,11 @@ export default function InputSub({ clickRef }) {
 
   return (
     <>
-      <label for="my-modal-6" ref={clickRef} className="btn modal-button">
-        open modal
-      </label>
+      <label
+        for="my-modal-6"
+        ref={clickRef}
+        className="btn modal-button hidden"
+      ></label>
 
       <input type="checkbox" id="my-modal-6" className="modal-toggle" />
       <div className="modal modal-bottom sm:modal-middle">

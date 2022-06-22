@@ -66,7 +66,7 @@ export default function Home() {
                 className="input input-bordered"
               />
               <label className="label">
-                <Link href="forgot">
+                <Link href="/forgot">
                   <a className="label-text-alt link link-hover">
                     Forgot password?
                   </a>

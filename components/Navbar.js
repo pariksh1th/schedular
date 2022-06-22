@@ -5,7 +5,7 @@ export default function Navbar() {
   const { currentUser, logout } = useAuth();
 
   return (
-    <div className="navbar bg-base-100 text-primary drop-shadow-md">
+    <div className="navbar bg-base-100 text-primary drop-shadow-md sticky top-0 z-10">
       <div className="flex-1">
         <Link href="/">
           <a className="btn btn-ghost normal-case text-2xl">schedular</a>
