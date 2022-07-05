@@ -41,8 +41,10 @@ export default function DisplayCourse() {
               title={sub.name}
               instructor={sub.instructor}
               code={sub.code}
-              branch={sub.branch}
               id={sub.id}
+              tutorial={sub.tutorial}
+              lecture={sub.lecture}
+              lab={sub.lab}
             />
           );
         })}
