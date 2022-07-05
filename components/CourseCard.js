@@ -3,9 +3,12 @@ import { AiFillDelete } from "react-icons/ai";
 import { useAuth } from "../lib/context";
 
 export default function CourseCard({ title, instructor, code, branch, id }) {
-  const { db } = useAuth();
+  const { db, courses, setCourses } = useAuth();
 
   function handelClick() {
+    setCourses((prev) => {
+      return prev.filter((fish) => fish.id !== id);
+    });
     const docRef = doc(db, "courses", id);
     deleteDoc(docRef)
       .then(() => {

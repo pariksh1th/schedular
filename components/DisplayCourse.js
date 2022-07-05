@@ -2,12 +2,17 @@ import CourseCard from "./CourseCard";
 import BottomBar from "./BottomBar";
 import Canvas from "./Canvas";
 import { useAuth } from "../lib/context";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
+import {
+  collection,
+  query,
+  where,
+  onSnapshot,
+  getDocs,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 export default function DisplayCourse() {
-  const { currentUser, db } = useAuth();
-  const [courses, setCourses] = useState([]);
+  const { currentUser, db, courses, setCourses } = useAuth();
 
   // fetching subject data from firestore
   const q = query(
@@ -22,7 +27,6 @@ export default function DisplayCourse() {
         temp.push({ ...doc.data(), id: doc.id });
       });
       setCourses(temp);
-      console.log(temp);
     });
   }, []);
 

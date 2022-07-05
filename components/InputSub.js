@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 import { Branch, Faculty } from "../lib/instituteInfo";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useAuth } from "../lib/context";
 
@@ -11,6 +11,7 @@ export default function InputSub({ clickRef }) {
     code: "",
     instructor: "Course Instructor",
     branch: "Select Branch",
+    createdAt: serverTimestamp(),
   });
 
   const handelChange = (e) => {
