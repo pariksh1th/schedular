@@ -11,13 +11,14 @@ import {
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
-export default function DisplayCourse() {
+export default function DisplayCourse({ sectionName }) {
   const { currentUser, db, courses, setCourses } = useAuth();
 
   // fetching subject data from firestore
   const q = query(
     collection(db, "courses"),
-    where("userID", "==", currentUser.uid)
+    where("userID", "==", currentUser.uid),
+    where("sectionName", "==", sectionName)
   );
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export default function DisplayCourse() {
         })}
       </div>
 
-      <BottomBar />
+      <BottomBar sectionName={sectionName} />
     </>
   );
 }

@@ -4,7 +4,7 @@ import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
 import { useAuth } from "../lib/context";
 
-export default function InputSub({ clickRef }) {
+export default function InputSub({ clickRef, sectionName }) {
   const { db, currentUser } = useAuth();
   const [subValue, setSubValue] = useState({
     name: "",
@@ -14,6 +14,7 @@ export default function InputSub({ clickRef }) {
     tutorial: 0,
     lab: 0,
     createdAt: serverTimestamp(),
+    sectionName: sectionName,
   });
 
   const handelChange = (e) => {

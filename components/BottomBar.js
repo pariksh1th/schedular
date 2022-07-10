@@ -3,7 +3,7 @@ import InputSub from "./InputSub";
 import { useRef } from "react";
 import { useAuth } from "../lib/context";
 
-export default function BottomBar() {
+export default function BottomBar({ sectionName }) {
   const clickRef = useRef();
 
   const { courses } = useAuth();
@@ -24,11 +24,11 @@ export default function BottomBar() {
             className="btn btn-secondary"
             onClick={() => console.log(courses)}
           >
-            Generate
+            Confirm
           </button>
         </div>
       </div>
-      <InputSub clickRef={clickRef} />
+      <InputSub clickRef={clickRef} sectionName={sectionName} />
     </>
   );
 }
