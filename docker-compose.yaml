@@ -1,0 +1,8 @@
+version: "1"
+
+services:
+  app:
+    image: timetable-front-docker
+    build: .
+    ports:
+      - 3000:3000
