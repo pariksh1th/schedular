@@ -22,7 +22,7 @@ export default function Home() {
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
       toast.success("Login successful🎉");
-      router.push("/subject");
+      router.push("/sections");
     } catch {
       setEroor("Failed to login");
     }

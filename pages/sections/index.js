@@ -14,7 +14,7 @@ export const sections = [
 export default function Index() {
   return (
     <>
-      <h1 className="text-5xl font-bold text-center my-2">Select sections</h1>
+      <h1 className="text-5xl font-bold text-center my-2">Sections</h1>
       <div className="flex flex-wrap gap-4 justify-center m-4">
         {sections.map((val, ind) => {
           return (

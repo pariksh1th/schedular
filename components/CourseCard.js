@@ -1,5 +1,6 @@
 import { deleteDoc, doc } from "firebase/firestore";
-import { AiFillDelete } from "react-icons/ai";
+import { FiEdit2 } from "react-icons/fi";
+import { RiDeleteBin7Line } from "react-icons/ri";
 import { useAuth } from "../lib/context";
 
 export default function CourseCard({
@@ -27,8 +28,20 @@ export default function CourseCard({
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
+      <div className="card-body px-[20px] py-[15px]">
+        <div className="flex justify-end gap-2">
+          <button
+            onClick={handelClick}
+            className="btn btn-square btn-ghost btn-sm"
+          >
+            <RiDeleteBin7Line />
+          </button>
+          <button className="btn btn-square btn-outline btn-secondary btn-sm">
+            <FiEdit2 />
+          </button>
+        </div>
+
+        <h2 className="secondary-title">{title}</h2>
         <p>
           Instructor: <strong> {instructor}</strong>{" "}
         </p>
@@ -51,12 +64,12 @@ export default function CourseCard({
             <div className="stat-value text-xl">{tutorial}</div>
           </div>
         </div>
-        <div className="card-actions  flex-row-reverse">
+        {/* <div className="card-actions  flex-row-reverse">
           <button className="btn btn-primary">Edit</button>
           <button className="btn btn-outline text-primary ">
             <AiFillDelete size="20" onClick={handelClick} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

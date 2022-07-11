@@ -5,7 +5,7 @@ export default function timetables() {
         <table className="table table-zebra w-[95%] mx-auto my-4">
           <thead>
             <tr>
-              <th>DAY⬇️ | TIME➡️</th>
+              <th>DAY | TIME</th>
               <th>9 - 10:30</th>
               <th>10:45 - 12:45</th>
               <th>1:45 - 3:15</th>

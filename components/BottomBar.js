@@ -2,6 +2,7 @@ import { BsPlusLg } from "react-icons/bs";
 import InputSub from "./InputSub";
 import { useRef } from "react";
 import { useAuth } from "../lib/context";
+import Link from "next/link";
 
 export default function BottomBar({ sectionName }) {
   const clickRef = useRef();
@@ -20,12 +21,14 @@ export default function BottomBar({ sectionName }) {
           <BsPlusLg size="34" />
         </div>
         <div className="flex justify-end w-full">
-          <button
-            className="btn btn-secondary"
-            onClick={() => console.log(courses)}
-          >
-            Confirm
-          </button>
+          <Link href="/sections">
+            <button
+              className="btn btn-secondary"
+              onClick={() => console.log(courses)}
+            >
+              Confirm
+            </button>
+          </Link>
         </div>
       </div>
       <InputSub clickRef={clickRef} sectionName={sectionName} />

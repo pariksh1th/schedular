@@ -27,7 +27,7 @@ export default function SignUP() {
       // adding user to db with subject and timetable set to []
 
       toast.success("Sign up successful🎉");
-      router.push("/subject", undefined);
+      router.push("/sections", undefined);
     } catch {
       setEroor("Failed to create an account");
     }
