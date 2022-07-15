@@ -43,8 +43,21 @@ def sec_test(userId, secs):
             for doc in res:
                 doc_list.append(doc.to_dict())
         outputDict[i] = doc_list
-    return outputDict
+
+    # return outputDict
+    return farmateOutput(outputDict)
     
     
 test_user = '46N64qo1bxe7VrcXadiztikzFDs2'
 # sec_test(test_user, sec_names)
+
+def farmateOutput(data):
+    output = {}
+    for sec in sec_names:
+        temp = {}
+        for i in range(len(data[sec])):
+            temp[data[sec][i]['instructor']] = [data[sec][i]['code'], f"{data[sec][i]['lecture']}-{data[sec][i]['tutorial']}-{data[sec][i]['lab']}"]
+            
+        output[sec] = temp
+    return output
+        
