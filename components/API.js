@@ -13,11 +13,12 @@ export function Api({ userId }) {
     console.log(userId);
     fetch("/api/data/" + userId).then((res) =>
       res.json().then((data) => {
+        console.log(data["Section 1"]);
         // Setting a data from api
         setVa({
-          name: data.name,
-          lab: data.lab,
-          email: data.userEmail,
+          name: data["Section 1"][0].name,
+          lab: data["Section 2"][0].lab,
+          email: data["Section 3"][0].useEmail,
         });
       })
     );

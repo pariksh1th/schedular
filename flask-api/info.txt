@@ -1,0 +1,86 @@
+SEM3 SECA:
+Lakshman
+MA201
+2-1-0
+Pramod
+CS201
+2-0-0
+Vivekraj
+CS207
+2-1-1
+Pramod Yelmewad
+EC105
+2-0-1
+Malay Kumar
+CS202
+2-1-1
+Unkn
+HS206
+2-0-0
+-1
+
+SEM3 SECB:
+Lakshman
+MA201
+2-1-0
+Pawan
+CS201
+2-0-0
+Vivekraj
+CS207
+2-1-1
+Vivekraj
+EC105
+2-0-1
+Radhika
+CS202
+2-1-1
+Unkn
+HS206
+2-0-0
+-1
+
+SEM5 TBE:
+Radhika
+SEC ENG
+2-1-0
+Pawan
+Gra
+2-1-0
+-1
+
+SEM5 Electives:
+Sadhvi
+Com desi
+2-1-0
+Vivekraj
+Com Gra
+2-1-0
+Uma
+Clou
+2-1-0
+-1
+
+SEM5A:
+Ramesh
+CS309
+2-1-0
+Sadhvi
+CS303
+2-1-1
+Jayalakshmi
+CS304
+2-1-0
+-1
+
+SEM5B:
+Ramesh
+CS309
+2-1-0
+Sadhvi
+CS303
+2-1-1
+Jayalakshmi
+CS304
+2-1-0
+-1

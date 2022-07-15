@@ -30,3 +30,21 @@ def test():
     return testing('46N64qo1bxe7VrcXadiztikzFDs2')
 
 
+sec_names = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5', 'Section 6']
+
+
+def sec_test(userId, secs):
+    print('workings')
+    outputDict = {}
+    for i in secs:
+        doc_list = []
+        res = db.collection('courses').where('userID', '==', userId).where('sectionName', '==', i).get()
+        if res:
+            for doc in res:
+                doc_list.append(doc.to_dict())
+        outputDict[i] = doc_list
+    return outputDict
+    
+    
+test_user = '46N64qo1bxe7VrcXadiztikzFDs2'
+# sec_test(test_user, sec_names)
