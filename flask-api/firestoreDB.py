@@ -49,7 +49,7 @@ def sec_test(userId, secs):
     
     
 test_user = '46N64qo1bxe7VrcXadiztikzFDs2'
-# sec_test(test_user, sec_names)
+
 
 def farmateOutput(data):
     output = {}

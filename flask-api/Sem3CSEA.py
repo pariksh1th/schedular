@@ -7,6 +7,7 @@ day_2 = ['L', 'l', 'L', 'L']
 day_3 = ['L', 'l', 'L', 'L']
 day_4 = ['L', 'l', 'L', 't']
 day_5 = ['L', 't', 't', 'L', 't']
+code = [0 , 0, 0, 0, 1]
 week = [day_1, day_2, day_3, day_4, day_5]
 ttCSE3A = []
 trL = {}
@@ -105,9 +106,11 @@ for _ in trT:
         else:
             week[3][3] = trT[_].pop(y)
 
+labcode = []
 while len(week) != 0:
     x = random.randint(0, len(week) - 1)
     ttCSE3A.append(week[x])
+    labcode.append(code[x])
     y = week.pop(x)
-
+    z = code.pop(x)
 

@@ -1,10 +1,21 @@
-SEC3A = {}
-SEC3B = {}
-SEC5Tb = {}
-SEC5A = {}
-SEC5B = {}
-SEC5E = {}
+from firestoreDB import sec_test, sec_names, test_user
 
+fetchedData = sec_test(test_user, sec_names)
+
+SEC3A = fetchedData[sec_names[0]]
+SEC3B = fetchedData[sec_names[1]]
+SEC5Tb = fetchedData[sec_names[2]]
+SEC5A = fetchedData[sec_names[3]]
+SEC5B = fetchedData[sec_names[4]]
+SEC5E = fetchedData[sec_names[5]]
+
+
+# SEC3A = {'Promod': ['CS201', '2-0-0'], 'Vivekraj': ['CS207', '2-1-1'], 'Promod yal': ['EC105', '2-0-1'], 'Lakshman': ['MA201', '2-1-0'], 'Malay': ['CS202', '2-1-1'], 'Unkn': ['HS206', '2-0-0']}
+# SEC3B = {'Unkn': ['HS206', '2-0-0'], 'Lakshman': ['MA201', '2-1-0'], 'Vivekraj': ['EC105', '2-0-1'], 'Pawan': ['CS201', '2-0-0'], 'Radhika': ['CS202', '2-1-1']}
+# SEC5A = {'Ramesh': ['CS309', '2-1-0'], 'Sadhvi': ['CS303', '2-1-1'], 'Jayalakshmi': ['CS304', '2-1-0']}
+# SEC5Tb = {'Pawan': ['Gra', '2-1-0'], 'Radhika': ['SEC ENG', '2-1-0'], 'Jayalakshmi': ['Something', '2-1-0']}
+# SEC5B = {'Ramesh': ['CS309', '2-1-0'], 'Jayalakshmi': ['CS304', '2-1-0'], 'Sadhvi': ['CS303', '2-1-1']}
+# SEC5E = {'Uma': ['Clou', '2-1-0'], 'Vivekraj': ['Com gra', '2-1-0'], 'Sadhvi': ['Com desi', '2-1-0']}
 """
 print('Input all the teachers for Sem3 SECA with course code and L-t-l(Enter -1 to exit):')
 while 1:
@@ -83,6 +94,4 @@ while 1:
         for i in range(2):
             y = input()
             z.append(y)
-        SEC5B[x] = z
-
-"""
+        SEC5B[x] = z"""

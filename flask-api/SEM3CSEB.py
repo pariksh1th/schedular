@@ -1,6 +1,6 @@
 from user_input import SEC3B
 from teachers import teachers
-from Sem3CSEA import ttCSE3A, labB
+from SEM3CSEA import ttCSE3A, labB, labcode
 import random
 
 day_1 = ['L', 'l', 'L', 'L']
@@ -37,10 +37,17 @@ for _ in SEC3B:
     for i in range(int(SEC3B[_][1][4])):
         l.append(SEC3B[_][0] + 'l')
 """
-for i in range(0, 5):
-    x = random.randint(0, len(week) - 1)
-    y = week.pop(x)
-    timetable3CB.append(y)
+
+for i in range(5):
+    if labcode[i] == 1:
+        for j in range(len(week)):
+            if len(week[j]) == 5:
+                timetable3CB.append(week.pop(j))
+
+
+for _ in range(len(week)):
+    timetable3CB.append(week.pop(0))
+        
 
 for i in range(0, 5):
     while timetable3CB[i][0] == 'L' and len(trL) != 0:
@@ -51,36 +58,47 @@ for i in range(0, 5):
         elif len(trL[x]) == 0:
             y = trL.pop(x)
 
+t = 0
 for i in range(0, 5):
     while timetable3CB[i][2] == 'L' and len(trL) != 0:
         x = random.choice(list(trL))
+        t += 1
         if len(trL[x]) != 0 and teachers[x][i][2] == 'f':
             timetable3CB[i][2] = trL[x].pop(0)
             teachers[x][i][2] = 'SEM3SECB'
         elif len(trL[x]) == 0:
             y = trL.pop(x)
+            if len(trL) == 0 or t > 30:
+                break
+        if len(trL) == 0 or t > 30:
+            break
+
+t = 0
 if len(trL) != 0:
     for i in range(0, 5):
         while timetable3CB[i][3] == 'L' and len(trL) != 0:
             x = random.choice(list(trL))
+            t += 1
             if len(trL[x]) != 0 and teachers[x][i][3] == 'f':
                 timetable3CB[i][3] = trL[x].pop(0)
                 teachers[x][i][3] = 'SEM3SECB'
             elif len(trL[x]) == 0:
                 y = trL.pop(x)
-            if len(trL) == 0:
+            if len(trL) == 0 or t > 31:
                 break
-        if len(trL) == 0:
+        if len(trL) == 0 or t > 31:
             break
 
+t = 0
 for i in range(0, 5):
     while timetable3CB[i][1] == 'l' and len(labB) != 0:
         x = random.randint(0, len(labB) - 1)
+        t += 1
         if labB[x] != ttCSE3A[i][1]:
             timetable3CB[i][1] = labB.pop(x)
-        if len(labB) == 0:
+        if len(labB) == 0 or t > 50:
             break
-    if len(labB) == 0:
+    if len(labB) == 0 or t > 50:
         break
 
 
@@ -90,6 +108,7 @@ for i in range(0, 5):
         if len(trT[x]) != 0 and teachers[x][i][1] == 'f':
             timetable3CB[i][1] = trT[x].pop(0)
             teachers[x][i][1] = 'SEM3SECB'
+            print('a')
         elif len(trT[x]) == 0:
             y = trT.pop(x)
         if len(trT) == 0:
@@ -97,30 +116,34 @@ for i in range(0, 5):
     if len(trT) == 0:
         break
 
+t = 0
 for i in range(0, 5):
     while timetable3CB[i][2] == 't' and len(trT) != 0:
         x = random.choice(list(trT))
+        t += 1
         if len(trT[x]) != 0 and teachers[x][i][2] == 'f':
             timetable3CB[i][2] = trT[x].pop(0)
             teachers[x][i][2] = 'SEM3SECB'
         elif len(trT[x]) == 0:
             y = trT.pop(x)
-        if len(trT) == 0:
+        if len(trT) == 0 or t > 30:
             break
-    if len(trT) == 0:
+    if len(trT) == 0 or t > 30:
         break
 
+t = 0
 for i in range(0, 5):
     while timetable3CB[i][3] == 't' and len(trT) != 0:
         x = random.choice(list(trT))
+        t += 1
         if len(trT[x]) != 0 and teachers[x][i][3] == 'f':
             timetable3CB[i][3] = trT[x].pop(0)
             teachers[x][i][3] = 'SEM3SECB'
         elif len(trT[x]) == 0:
             y = trT.pop(x)
-        if len(trT) == 0:
+        if len(trT) == 0 or t > 30:
             break
-    if len(trT) == 0:
+    if len(trT) == 0 or t > 30:
         break
 
 for i in range(0, 5):
@@ -137,6 +160,4 @@ for i in range(0, 5):
         break
 
 ttCSE3B = timetable3CB
-# for i in range(len(ttCSE3B)):
-#     print(ttCSE3B[i])
 

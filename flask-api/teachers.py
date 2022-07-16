@@ -1,5 +1,5 @@
 from user_input import *
-from Sem3CSEA import ttCSE3A
+from SEM3CSEA import ttCSE3A
 
 teachers = {}
 
