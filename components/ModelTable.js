@@ -2,32 +2,32 @@ import { useState, useEffect } from "react";
 
 const VALUES = {
   CSE3A: [
-    ["EC105L", "CS207tut", "MA201tut", "HS206L", "t"],
-    ["CS201L", "CS207l/EC105l", "CS207L", "MA201L"],
-    ["CS202L", "CS202l", "L", "CS202tut"],
-    ["CS201L", "CS202l", "CS207L", "EC105L"],
-    ["MA201L", "CS207l/EC105l", "CS202L", "L"],
+    ["EC105L", "CS207tut", "MA201tut", "MA201L", "t"],
+    ["EC105L", "CS202l", "MA201L", "CS202L"],
+    ["CS202L", "CS202l", "L", "L"],
+    ["CS201L", "CS207l/EC105l", "CS207L", "CS202tut"],
+    ["CS201L", "CS207l/EC105l", "CS207L", "HS206L"],
   ],
   CSE3B: [
-    ["HS206L", "MA201tut", "CS202tut", "EC105L", "t"],
-    ["HS206L", "CS202l", "CS201L", "L"],
-    ["MA201L", "CS207l/EC105l", "CS202L", "L"],
-    ["CS201L", "CS207l/EC105l", "MA201L", "L"],
-    ["CS202L", "CS202l", "EC105L", "t"],
+    ["MA201L", "MA201tut", "CS202tut", "CS202L", "t"],
+    ["EC105L", "CS207l/EC105l", "EC105L", "L"],
+    ["MA201L", "CS207l/EC105l", "HS206L", "L"],
+    ["HS206L", "CS202l", "CS202L", "L"],
+    ["CS201L", "CS202l", "CS201L", "t"],
   ],
   CSE5A: [
-    ["CS303l", "ElectiveL", "CS304L", "ElectiveTut"],
-    ["CS303l", "BasketL", "CS304L", "CS309tut"],
-    ["CS304tut", "ElectiveL", "CS309L", "L"],
+    ["CS304tut", "CS304L", "CS303L", "ElectiveTut"],
+    ["CS303l", "ElectiveL", "CS309L", "CS303tut"],
     ["L", "BasketL", "CS309L", "BasketTut"],
-    ["CS303tut", "CS303L", "CS303L", "t"],
+    ["CS309tut", "BasketL", "CS304L", "L"],
+    ["CS303l", "ElectiveL", "CS303L", "t"],
   ],
   CSE5B: [
-    ["Cloutut", "ElectiveL", "ClouL", "ElectiveTut"],
-    ["t", "BasketL", "Com desiL", "Com gratut"],
-    ["CS303l", "ElectiveL", "Com graL", "L"],
-    ["Com desiL", "BasketL", "ClouL", "BasketTut"],
-    ["CS303l", "Com graL", "L", "Com desitut"],
+    ["CS303l", "L", "CS304L", "ElectiveTut"],
+    ["CS304tut", "ElectiveL", "CS303L", "CS309tut"],
+    ["CS304L", "BasketL", "CS303L", "BasketTut"],
+    ["CS303l", "BasketL", "CS309L", "L"],
+    ["t", "ElectiveL", "CS309L", "CS303tut"],
   ],
 };
 
@@ -65,40 +65,63 @@ export default function ModelTable({ userId }) {
   return (
     <>
       {loading ? (
-        <h1>loading</h1>
+        <h1 className="text-center text-2xl py-24">loading....</h1>
       ) : (
-        <div className="card w-[70%]  mx-auto my-4 shadow-lg">
-          <div className="overflow-x-auto">
-            <table className="table table-zebra w-[95%] mx-auto my-4">
-              <thead>
-                <tr>
-                  <th>DAY | TIME</th>
-                  <th>9 - 10:30</th>
-                  <th>10:45 - 12:45</th>
-                  <th>1:45 - 3:15</th>
-                  <th>3:30: - 4:30</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* {DAYS.map((day, ind) => (
-                  <tr key={ind}>{day}</tr>
-                ))} */}
-                {fetchValue.CSE3A.map((val, ind) => {
-                  console.log("valtop", val);
-                  return (
-                    <tr key={ind}>
-                      {val.map((lec, i) => {
-                        console.log("lec", lec);
-                        return <th key={i}>{lec}</th>;
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
-        </div>
+        <>
+          <TableTemptlet
+            currentSection={fetchValue.CSE3A}
+            heading="SEM 3 Section A:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.CSE3B}
+            heading="SEM 3 Section B:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.CSE5A}
+            heading="SEM 5 Section A:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.CSE5B}
+            heading="SEM 5 Section B:"
+          />
+        </>
       )}
     </>
   );
 }
+
+const TableTemptlet = ({ currentSection, heading }) => {
+  return (
+    <div className="card w-[70%]  mx-auto my-4 shadow-lg">
+      <h1 className="text-center text-2xl mt-2 text-secondary">{heading}</h1>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-[95%] mx-auto my-4">
+          <thead className="z-0">
+            <tr>
+              <th>DAY | TIME</th>
+              <th>9 - 10:30</th>
+              <th>10:45 - 12:45</th>
+              <th>1:45 - 3:15</th>
+              <th>3:30: - 4:30</th>
+            </tr>
+          </thead>
+          <tbody>
+            {currentSection.map((val, ind) => {
+              console.log("valtop", val);
+              return (
+                <tr key={ind}>
+                  <th className="text-xs">{DAYS[ind]}</th>
+
+                  {val.map((lec, i) => {
+                    console.log("lec", lec);
+                    return <th key={i}>{lec}</th>;
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+};

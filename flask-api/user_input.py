@@ -7,9 +7,12 @@ SEC3A = fetchedData[sec_names[0]]
 SEC3B = fetchedData[sec_names[1]]
 SEC5Tb = fetchedData[sec_names[2]]
 SEC5A = fetchedData[sec_names[3]]
-SEC5B = fetchedData[sec_names[4]]
-SEC5E = fetchedData[sec_names[5]]
+SEC5B = fetchedData[sec_names[5]]
+SEC5E = fetchedData[sec_names[4]]
 print(fetchedData)
+
+# {'Section 1': {'Promod': ['CS201', '2-0-0'], 'Vivekraj': ['CS207', '2-1-1'], 'Promod yal': ['EC105', '2-0-1'], 'Lakshman': ['MA201', '2-1-0'], 'Malay': ['CS202', '2-1-1'], 'Unkn': ['HS206', '2-0-0']}, 'Section 2': {'Unkn': ['HS206', '2-0-0'], 'Lakshman': ['MA201', '2-1-0'], 'Vivekraj': ['EC105', '2-0-1'], 'Pawan': ['CS201', '2-0-0'], 'Radhika': ['CS202', '2-1-1']}, 'Section 3': {'Pawan': ['Gra', '2-1-0'], 'Radhika': ['SEC ENG', '2-1-0']}, 'Section 4': {'Ramesh': ['CS309', '2-1-0'], 'Sadhvi': ['CS303', '2-1-1'], 'Jayalakshmi': ['CS304', '2-1-0']}, 'Section 5': {'Uma': ['Clou', '2-1-0'], 'Vivekraj': ['Com gra', '2-1-0'], 'Sadhvi': ['Com desi', '2-1-0']}, 'Section 6': {'Ramesh': ['CS309', '2-1-0'], 'Jayalakshmi': ['CS304', '2-1-0'], 'Sadhvi': ['CS303', '2-1-1']}}
+
 
 
 # SEC3A = {'Promod': ['CS201', '2-0-0'], 'Vivekraj': ['CS207', '2-1-1'], 'Promod yal': ['EC105', '2-0-1'], 'Lakshman': ['MA201', '2-1-0'], 'Malay': ['CS202', '2-1-1'], 'Unkn': ['HS206', '2-0-0']}

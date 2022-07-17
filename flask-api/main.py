@@ -19,4 +19,7 @@ def returnTable(user):
                 'CSE5B' : tt5CSB
     }
     print('done')
+
     return timetable
+
+

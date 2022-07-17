@@ -11,20 +11,20 @@ from firestoreDB import testing, sec_test, sec_names
 
 
 app = Flask(__name__)
-test_user = ''
+# test_user = ''
 
 @app.route("/data/<username>")
 def hello_world(username):
     from main import returnTable
-    global test_user
-    test_user = username
-    print(test_user)
+    # global test_user
+    # test_user = username
+    # print(test_user)
     return returnTable(username)
 
 # @app.route("/data/tt")
 # def ttReturn():
 #     return sec_test(test_user, sec_names)
-
+tes = {'Section 5': {'Uma': ['Clou', '2-1-0'], 'Vivekraj': ['Com gra', '2-1-0'], 'Sadhvi': ['Com desi', '2-1-0']},}
 
 # @app.route("/data/model")
 # def model():

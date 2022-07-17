@@ -35,7 +35,7 @@ export default function Index() {
         })}
       </div>
       <div className="flex w-full justify-center">
-        <Link href="/timetables">
+        <Link href="/tables">
           <button className="btn btn-success btn-lg">Generate Timetable</button>
         </Link>
       </div>
