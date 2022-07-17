@@ -31,17 +31,20 @@ const VALUES = {
   ],
 };
 
-export default function ModelTable() {
+const DAYS = ["MONDAY", "TUESDAY", "WEDNESDAY", "THRUSDAY", "FRIDAY"];
+
+export default function ModelTable({ userId }) {
   const [fetchValue, setFetch] = useState(VALUES);
 
   const [loading, setLoading] = useState(true);
 
   async function fetchData() {
-    await fetch("/api/data/model")
+    await fetch("/api/data/" + userId)
       .then((res) =>
         res.json().then((data) => {
           console.log("working");
           console.log("data", data);
+
           setFetch({
             CSE3A: data["CSE3A"],
             CSE3B: data["CSE3B"],
@@ -77,6 +80,9 @@ export default function ModelTable() {
                 </tr>
               </thead>
               <tbody>
+                {/* {DAYS.map((day, ind) => (
+                  <tr key={ind}>{day}</tr>
+                ))} */}
                 {fetchValue.CSE3A.map((val, ind) => {
                   console.log("valtop", val);
                   return (

@@ -33,8 +33,11 @@ def test():
 sec_names = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5', 'Section 6']
 
 
-def sec_test(userId, secs):
+def sec_test(secs):
+    from main import test_user
+    userId = test_user
     print('workings')
+    print('userid',userId)
     outputDict = {}
     for i in secs:
         doc_list = []
@@ -49,7 +52,7 @@ def sec_test(userId, secs):
 
     
     
-test_user = '46N64qo1bxe7VrcXadiztikzFDs2'
+# test_user = '46N64qo1bxe7VrcXadiztikzFDs2'
 
 
 def farmateOutput(data):
