@@ -1,96 +1,98 @@
 import { useState, useEffect } from "react";
 
+const VALUES = {
+  CSE3A: [
+    ["EC105L", "CS207tut", "MA201tut", "HS206L", "t"],
+    ["CS201L", "CS207l/EC105l", "CS207L", "MA201L"],
+    ["CS202L", "CS202l", "L", "CS202tut"],
+    ["CS201L", "CS202l", "CS207L", "EC105L"],
+    ["MA201L", "CS207l/EC105l", "CS202L", "L"],
+  ],
+  CSE3B: [
+    ["HS206L", "MA201tut", "CS202tut", "EC105L", "t"],
+    ["HS206L", "CS202l", "CS201L", "L"],
+    ["MA201L", "CS207l/EC105l", "CS202L", "L"],
+    ["CS201L", "CS207l/EC105l", "MA201L", "L"],
+    ["CS202L", "CS202l", "EC105L", "t"],
+  ],
+  CSE5A: [
+    ["CS303l", "ElectiveL", "CS304L", "ElectiveTut"],
+    ["CS303l", "BasketL", "CS304L", "CS309tut"],
+    ["CS304tut", "ElectiveL", "CS309L", "L"],
+    ["L", "BasketL", "CS309L", "BasketTut"],
+    ["CS303tut", "CS303L", "CS303L", "t"],
+  ],
+  CSE5B: [
+    ["Cloutut", "ElectiveL", "ClouL", "ElectiveTut"],
+    ["t", "BasketL", "Com desiL", "Com gratut"],
+    ["CS303l", "ElectiveL", "Com graL", "L"],
+    ["Com desiL", "BasketL", "ClouL", "BasketTut"],
+    ["CS303l", "Com graL", "L", "Com desitut"],
+  ],
+};
+
 export default function ModelTable() {
-  // const [fetchValue, setFetch] = useState({
-  //   CSE3A: [],
-  //   CSE3B: [],
-
-  //   CSE5A: [],
-  //   CSE5B: [],
-  // });
-
-  var fetchValue = {};
+  const [fetchValue, setFetch] = useState(VALUES);
 
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    fetch("/api/data/model")
+
+  async function fetchData() {
+    await fetch("/api/data/model")
       .then((res) =>
         res.json().then((data) => {
           console.log("working");
-          console.log(data);
-
-          fetchValue = data;
+          console.log("data", data);
+          setFetch({
+            CSE3A: data["CSE3A"],
+            CSE3B: data["CSE3B"],
+            CSE5A: data["CSE5A"],
+            CSE5B: data["CSE5B"],
+          });
+          console.log(fetchValue);
           setLoading(false);
-          console.log("cse3a", fetchValue.CSE3A);
-          console.log("cse3b", fetchValue.CSE3B);
-          console.log("cse5a", fetchValue.CSE5A);
-          console.log("cse5b", fetchValue.CSE5B);
         })
       )
       .catch((e) => console.log(e));
-  }, []);
-
-  if (loading) {
-    return <h1>loading</h1>;
   }
 
-  return <TableTemplete fetchValue={fetchValue} />;
-}
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-const TableTemplete = (fetchValue) => {
   return (
-    <div className="card w-[70%]  mx-auto my-4 shadow-lg">
-      <div className="overflow-x-auto">
-        <table className="table table-zebra w-[95%] mx-auto my-4">
-          <thead>
-            <tr>
-              <th>DAY | TIME</th>
-              <th>9 - 10:30</th>
-              <th>10:45 - 12:45</th>
-              <th>1:45 - 3:15</th>
-              <th>3:30: - 4:30</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              {/* <th>Monday</th>
-          {fetchValue.CSE3A[0].map((val, ind) => (
-            <td key={ind}>{val}</td>
-          ))} */}
-            </tr>
-
-            <tr>
-              {/* {fetchValue.CSE3A[0].map((val, ind) => {
-                <th key={ind}>{val}</th>;
-              })} */}
-              {/* <td>{fetchValue.CSE3A[0][1]}</td> */}
-              <td>Here</td>
-              <td>MA103L</td>
-            </tr>
-
-            <tr>
-              <th>Wednesday</th>
-              <td>CS102L</td>
-              <td>CS/EC</td>
-              <td>HS102Lab</td>
-              <td>PH105Tut</td>
-            </tr>
-            <tr>
-              <th>Thursday</th>
-              <td>CS102L</td>
-              <td>HS102Lab</td>
-              <td>CS106L</td>
-              <td>CSETut</td>
-            </tr>
-            <tr>
-              <th>Friday</th>
-              <td>CS106L</td>
-              <td>HS102Lab</td>
-              <td>PH105L</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <>
+      {loading ? (
+        <h1>loading</h1>
+      ) : (
+        <div className="card w-[70%]  mx-auto my-4 shadow-lg">
+          <div className="overflow-x-auto">
+            <table className="table table-zebra w-[95%] mx-auto my-4">
+              <thead>
+                <tr>
+                  <th>DAY | TIME</th>
+                  <th>9 - 10:30</th>
+                  <th>10:45 - 12:45</th>
+                  <th>1:45 - 3:15</th>
+                  <th>3:30: - 4:30</th>
+                </tr>
+              </thead>
+              <tbody>
+                {fetchValue.CSE3A.map((val, ind) => {
+                  console.log("valtop", val);
+                  return (
+                    <tr key={ind}>
+                      {val.map((lec, i) => {
+                        console.log("lec", lec);
+                        return <th key={i}>{lec}</th>;
+                      })}
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
+    </>
   );
-};
+}

@@ -16,6 +16,10 @@ SEC5E = fetchedData[sec_names[5]]
 # SEC5Tb = {'Pawan': ['Gra', '2-1-0'], 'Radhika': ['SEC ENG', '2-1-0'], 'Jayalakshmi': ['Something', '2-1-0']}
 # SEC5B = {'Ramesh': ['CS309', '2-1-0'], 'Jayalakshmi': ['CS304', '2-1-0'], 'Sadhvi': ['CS303', '2-1-1']}
 # SEC5E = {'Uma': ['Clou', '2-1-0'], 'Vivekraj': ['Com gra', '2-1-0'], 'Sadhvi': ['Com desi', '2-1-0']}
+print(SEC3A)
+print(SEC3B)
+print(SEC5A)
+print(SEC5B)
 """
 print('Input all the teachers for Sem3 SECA with course code and L-t-l(Enter -1 to exit):')
 while 1:
