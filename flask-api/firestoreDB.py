@@ -19,18 +19,26 @@ def queryWith(userId, sectionName):
     
     return output
 
-def testing(userId):
-    res = db.collection('courses').where('userID', '==', userId).get()
+# def testing(userId):
+#     res = db.collection('courses').where('userID', '==', userId).get()
 
-    if res:
-        for doc in res:
-            return doc.to_dict()
+#     if res:
+#         for doc in res:
+#             return doc.to_dict()
     
-def test():
-    return testing('46N64qo1bxe7VrcXadiztikzFDs2')
+# def test():
+#     return testing('46N64qo1bxe7VrcXadiztikzFDs2')
 
 
-sec_names = ['Section 1', 'Section 2', 'Section 3', 'Section 4', 'Section 5', 'Section 6']
+SECTIONS = [
+"SEM 3 Section A" ,
+"SEM 3 Section B" ,
+"SEM 5 Theory Basket Electives" ,
+"SEM 5 Electives" ,
+"SEM 5 Section A",
+"SEM 5 Section B",
+]
+
 
 
 def sec_test(secs):
@@ -57,7 +65,7 @@ def sec_test(secs):
 
 def farmateOutput(data):
     output = {}
-    for sec in sec_names:
+    for sec in SECTIONS:
         temp = {}
         for i in range(len(data[sec])):
             temp[data[sec][i]['instructor']] = [data[sec][i]['code'], f"{data[sec][i]['lecture']}-{data[sec][i]['tutorial']}-{data[sec][i]['lab']}"]

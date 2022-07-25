@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import Link from "next/link";
+
 const VALUES = {
   CSE3A: [
     ["EC105L", "CS207tut", "MA201tut", "MA201L", "t"],
@@ -67,7 +69,7 @@ export default function ModelTable({ userId }) {
       {loading ? (
         <h1 className="text-center text-2xl py-24">loading....</h1>
       ) : (
-        <>
+        <div>
           <TableTemptlet
             currentSection={fetchValue.CSE3A}
             heading="SEM 3 Section A:"
@@ -84,7 +86,14 @@ export default function ModelTable({ userId }) {
             currentSection={fetchValue.CSE5B}
             heading="SEM 5 Section B:"
           />
-        </>
+          <Link href="/sections">
+            <div className="flex justify-end ">
+              <button className="btn btn-square btn-secondary mr-2 w-24  bottom-10 fixed">
+                Go Back
+              </button>
+            </div>
+          </Link>
+        </div>
       )}
     </>
   );
