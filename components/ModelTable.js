@@ -44,7 +44,7 @@ export default function ModelTable({ userId }) {
     await fetch("/api/data/" + userId)
       .then((res) =>
         res.json().then((data) => {
-          console.log("working");
+          // console.log("working");
           console.log("data", data);
 
           setFetch({
@@ -52,8 +52,14 @@ export default function ModelTable({ userId }) {
             CSE3B: data["CSE3B"],
             CSE5A: data["CSE5A"],
             CSE5B: data["CSE5B"],
+            CSESEM7: data["CSESEM7"],
+            DSSEM3: data["DSSEM3"],
+            DDSEM5: data["DDSEM5"],
+            ECESEC3: data["ECESEC3"],
+            ECESEM5: data["ECESEM5"],
+            ECESEM7: data["ECESEM7"],
           });
-          console.log(fetchValue);
+          // console.log(fetchValue);
           setLoading(false);
         })
       )
@@ -72,19 +78,45 @@ export default function ModelTable({ userId }) {
         <div>
           <TableTemptlet
             currentSection={fetchValue.CSE3A}
-            heading="SEM 3 Section A:"
+            heading="SEM 3 CSE Section A:"
           />
           <TableTemptlet
             currentSection={fetchValue.CSE3B}
-            heading="SEM 3 Section B:"
+            heading="SEM 3 CSE Section B:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.DSSEM3}
+            heading="SEM 3 DSA:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.ECESEC3}
+            heading="SEM 3 ECE:"
           />
           <TableTemptlet
             currentSection={fetchValue.CSE5A}
-            heading="SEM 5 Section A:"
+            heading="SEM 5 CSE Section A:"
           />
           <TableTemptlet
             currentSection={fetchValue.CSE5B}
-            heading="SEM 5 Section B:"
+            heading="SEM 5 CSE Section B:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.DDSEM5}
+            heading="SEM 5 DSA:"
+          />
+
+          <TableTemptlet
+            currentSection={fetchValue.ECESEM5}
+            heading="SEM 5 ECE:"
+          />
+          <TableTemptlet
+            currentSection={fetchValue.CSESEM7}
+            heading="SEM 7 CSE:"
+          />
+
+          <TableTemptlet
+            currentSection={fetchValue.ECESEM7}
+            heading="SEM 7 ECE:"
           />
           <Link href="/sections">
             <div className="flex justify-end ">

@@ -36,12 +36,12 @@ for _ in SEC3A:
 
 for _ in SEC3A:
     for i in range(int(SEC3A[_][1][4])):
-        l.append(SEC3A[_][0] + 'l')
-        l1.append(SEC3A[_][0] + 'l')
+        l.append(SEC3A[_][0] + 'p')
+        l1.append(SEC3A[_][0] + 'p')
     if len(SEC3A[_]) > 2:
         for i in range(int(SEC3A[_][1][4])):
-            l.append(SEC3A[_][2] + 'l')
-            l1.append(SEC3A[_][2] + 'l')
+            l.append(SEC3A[_][2] + 'p')
+            l1.append(SEC3A[_][2] + 'p')
 
 if len(l) == 1:
     l = [l[0], l[0]]
@@ -58,6 +58,7 @@ elif len(l) == 4:
 
 labA = l
 labB = l1
+labs = len(l)
 
 count = 0
 for _ in trL:

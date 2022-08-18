@@ -54,7 +54,7 @@ for _ in SEC5Tb:
     if int(SEC5Tb[_][1][4]) == 0:
         break
     for i in range(int(SEC5Tb[_][1][4])):
-        l.append(SEC5Tb[_][0] + 'l')
+        l.append(SEC5Tb[_][0] + 'p')
 
 # TODO EXCEPTION HANDLING FOR LABS
 

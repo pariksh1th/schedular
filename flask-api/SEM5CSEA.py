@@ -28,8 +28,8 @@ for _ in SEC5A:
 
 for _ in SEC5A:
     for i in range(int(SEC5A[_][1][4])):
-        l1.append(SEC5A[_][0] + 'l')
-        l2.append(SEC5A[_][0] + 'l')
+        l1.append(SEC5A[_][0] + 'p')
+        l2.append(SEC5A[_][0] + 'p')
 
 if len(l1) == 1:
     l1 = [l1[0], l1[0]]

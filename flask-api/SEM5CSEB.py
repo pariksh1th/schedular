@@ -118,3 +118,9 @@ for i in range(0, 5):
     if len(trT) == 0:
         break
 
+for _ in teachers:
+    for i in range(5):
+        if len(teachers[_][i]) == 4 and teachers[_][i][1] != 'f':
+            teachers[_][i].insert(2, teachers[_][i][1])
+        elif len(teachers[_][i]) == 4:
+            teachers[_][i].insert(2, 'f')

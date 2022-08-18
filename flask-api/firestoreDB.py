@@ -37,7 +37,29 @@ SECTIONS = [
 "SEM 5 Electives" ,
 "SEM 5 Section A",
 "SEM 5 Section B",
+"SEM 3 ECE",
+"SEM 3 DSA",
+"SEM 5 ECE",
+"SEM 5 DSA",
+# "SEM 7",
+"SEM 7 ECE",
+
 ]
+
+"""  SECTIONS = [
+"SEM 3 Section A" ,
+"SEM 3 Section B" ,
+"SEM 5 Theory Basket Electives" ,
+"SEM 5 Electives" ,
+"SEM 5 Section A",
+"SEM 5 Section B",
+"SEM 3 ECE",
+"SEM 3 DSA",
+"SEM 5 ECE",
+"SEM 5 DSA",
+# "SEM 7",
+"SEM 7 ECE",
+]  """
 
 
 
