@@ -9,11 +9,11 @@ day_3 = ['t', 'L', 'L', 'L']
 day_4 = ['L', 'L', 'L', 't']
 day_5 = ['t', 'L', 'L', 't']
 
-day_1_1 = ['l', 'L', 'L', 't']
-day_2_1 = ['l', 'L', 'L', 't']
-day_3_1 = ['t', 'L', 'L', 'L']
+day_1_1 = ['t', 'L', 'L', 't']
+day_2_1 = ['t', 'L', 'L', 't']
+day_3_1 = ['l', 'L', 'L', 'L']
 day_4_1 = ['L', 'L', 'L', 't']
-day_5_1 = ['t', 'L', 'L', 't']
+day_5_1 = ['l', 'L', 'L', 't']
 
 week1 = [day_1, day_2, day_3, day_4, day_5]
 week2 = [day_1_1, day_2_1, day_3_1, day_4_1, day_5_1]
@@ -54,7 +54,7 @@ for _ in SEC5Tb:
     if int(SEC5Tb[_][1][4]) == 0:
         break
     for i in range(int(SEC5Tb[_][1][4])):
-        l.append(SEC5Tb[_][0] + 'l')
+        l.append(SEC5Tb[_][0] + 'p')
 
 # TODO EXCEPTION HANDLING FOR LABS
 
@@ -149,7 +149,7 @@ for _ in SEC5E:
 Lcount = 0
 while True:
     i = random.randint(0, 4)
-    if Lcount == lec: #Do this
+    if Lcount >= lec: #Do this
         break
     while tt5CSA[i][1] == 'L':
         flag = 0
@@ -164,6 +164,8 @@ while True:
             for _ in trL1:
                 teachers[_][i][1] = 'SEM5'
             Lcount += 1
+        else:
+            break
 
 Tcount = 0
 while True:
@@ -185,4 +187,5 @@ while True:
             for _ in trT1:
                 teachers[_][i][3] = 'SEM5'
             Tcount += 1
+
 

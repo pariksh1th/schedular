@@ -1,9 +1,10 @@
-import { sections } from ".";
+import { SECTIONS } from ".";
 import { useAuth } from "../../lib/context";
 import DisplayCourse from "../../components/DisplayCourse";
 
 export const getStaticPaths = () => {
-  const paths = sections.map((sec) => {
+  console.log(SECTIONS);
+  const paths = SECTIONS.map((sec) => {
     return { params: { id: sec.name } };
   });
   return { paths: paths, fallback: false };

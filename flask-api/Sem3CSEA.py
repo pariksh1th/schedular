@@ -7,6 +7,7 @@ day_2 = ['L', 'l', 'L', 'L']
 day_3 = ['L', 'l', 'L', 'L']
 day_4 = ['L', 'l', 'L', 't']
 day_5 = ['L', 't', 't', 'L', 't']
+code = [0 , 0, 0, 0, 1]
 week = [day_1, day_2, day_3, day_4, day_5]
 ttCSE3A = []
 trL = {}
@@ -35,12 +36,12 @@ for _ in SEC3A:
 
 for _ in SEC3A:
     for i in range(int(SEC3A[_][1][4])):
-        l.append(SEC3A[_][0] + 'l')
-        l1.append(SEC3A[_][0] + 'l')
+        l.append(SEC3A[_][0] + 'p')
+        l1.append(SEC3A[_][0] + 'p')
     if len(SEC3A[_]) > 2:
         for i in range(int(SEC3A[_][1][4])):
-            l.append(SEC3A[_][2] + 'l')
-            l1.append(SEC3A[_][2] + 'l')
+            l.append(SEC3A[_][2] + 'p')
+            l1.append(SEC3A[_][2] + 'p')
 
 if len(l) == 1:
     l = [l[0], l[0]]
@@ -57,6 +58,7 @@ elif len(l) == 4:
 
 labA = l
 labB = l1
+labs = len(l)
 
 count = 0
 for _ in trL:
@@ -105,9 +107,11 @@ for _ in trT:
         else:
             week[3][3] = trT[_].pop(y)
 
+labcode = []
 while len(week) != 0:
     x = random.randint(0, len(week) - 1)
     ttCSE3A.append(week[x])
+    labcode.append(code[x])
     y = week.pop(x)
-
+    z = code.pop(x)
 
