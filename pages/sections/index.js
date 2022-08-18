@@ -3,10 +3,14 @@ import Link from "next/link";
 export const SECTIONS = [
   { name: "SEM 3 Section A" },
   { name: "SEM 3 Section B" },
+  { name: "SEM 3 ECE" },
+  { name: "SEM 3 DSA" },
   { name: "SEM 5 Theory Basket Electives" },
   { name: "SEM 5 Electives" },
   { name: "SEM 5 Section A" },
-  { name: "SEM 5 Section B" },
+  { name: "SEM 5 ECE" },
+  { name: "SEM 5 DSA" },
+  { name: "SEM 7" },
 ];
 
 // context = paths
