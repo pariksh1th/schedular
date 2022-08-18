@@ -28,9 +28,10 @@ def returnTable(user):
                 'ECESEM5': tt5ECE,
                 'ECESEM7': ttECE7,
                 'DSSEM3': ttDS3,
-                'DDSEM5': tt5DS
+                'DDSEM5': tt5DS,
+                "teachers": teachers
     }
-    print('done')
+    print("done")
 
     return timetable
 
